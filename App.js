@@ -1,22 +1,20 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {Provider} from 'react-redux';
+
+import configureStore from './src/store/index';
+
+import ShowList from './src/screens/showList/index';
+
+const store = configureStore();
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <Text>REACT</Text>
+      <Provider store={store}>
+        <ShowList />
+      </Provider>
     </>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;
